@@ -11,7 +11,9 @@ list_directory().then(res => {
     // console.log(res)
 
     const div = document.getElementById("lista-foldera");
+    console.log(res);
     res.forEach(element => {
+        
         if(!element.includes('.')){
             div.innerHTML += `<p><a href="${element}">${element}</a></p>\n` ;
         }

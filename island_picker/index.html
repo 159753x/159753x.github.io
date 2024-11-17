@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>island_picker.js</title>
+		<!-- <style>body{margin: 0}</style> -->
+		<script type="module" crossorigin src="/assets/index-DHLJF_EG.js"></script>
+		<link rel="stylesheet" crossorigin href="/assets/index-hyK6_wO_.css">
+	</head>
+	<body>
+
+<!-- popup window  -->
+		<div class="overlay" id="overlay">
+			<div class="popup" id="popup">
+				<h2 id="popup-title">Rules</h2>
+				<p id="popup-body">This is a island_picker.js game where user tries to guess island with highest average elevation. <br>
+					Player has three lives that are represented by three hearts in upper-left corner of the game. <br><br> Good Luck. </p>
+				<button id="close-popup">Close</button>
+			</div>
+		</div>
+<!-- navbar -->
+		<nav class="main-nav">
+			<div class="nav-title">island_picker.js</div>
+			<ul class="nav-options">
+				<li><a href="#" onclick="showRules()">Rules</a></li>
+				<li><a href="#" onclick="showProject()">Project</a></li>
+				<li><a href="#" onclick="showAuthor()">Author</a></li>
+			</ul>
+		</nav>
+<!-- game start -->
+		<div id="container">
+			<div id="app">
+
+			</div>
+			<div id="hearts-container" class="hearts-container">
+				<img id="heart3" class="heart3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADxElEQVR4nO2Y+VbaQBSHeZa22larbVHccEGBQMK+g1sU37QcXwWk4gI+wO35TZiskDgGip6Te873X3Lnm5l7JwOhUBBBBBHEh4h2u33bbrfp+vqaVFWly8tLOj8/p7OzM2o2mx3RfK1W6xbvIgdyISdyY4ybmxvhfJ6BwU5PTyFLjUaDarUaVatVKpfLVCqVSDQf3imXyywHciEncmMMjDXzCVQqFSZaLBYpn89TLpejTCZDiqJQOp0WHhDvKIrCciAXciI3xsBYM58ABpNlmVKpFEmSRIlEwoJoPvv7kiSx3BgDY/kWVlX11lzrL7mmlSxo6PBnLy4uUAIdr3wjuUYjuUqjtJVhqsIw94aqquI90Wq19Hqv1+sW2ZcMp84YKXXC8/xZ1LRXvlFaEx2akco6eIb3Bd4VngBvTtRloVCwyGrUNNhK1vRm5j3ilc8sOwTJkgU8w3sC7wpPIJvNslpETaLhuKiBdet5Q/PnvfKZZZ8ToGgBz/B+wLuvOudxDl9dXTHsovZw235g7gnU8zTR5zgoGJxw8jpPx3nda/ytcPYEH4wPqK2sIeiYgMv2A3tPaKLusk/HZnIaMQ04cT+4OiaADwgG5c1mX1XHBFy2H6L2npi0qk8TRDWyGkcGvJkBXB0T4CvFv7D2FbWH1/bbe8JV9shOhh4PrfAvNoCrYwJ8xfiqOev07dsvIvp4oFjZB7J+Ik09lfj1AKDrvZpKZPsnih4qE2Rlg6hMD9G0Dpy436RjWr8q8C2fuKqxWa2qSXTfKvqwB1IGu0DSj9WpVw1Jkjq4jySTSXY3meX2G6IusruaqM6ORIOdpMa25gS3seMfz++C/Rz3s/1O0ZRNVNJFOfzY5PehkGjYz3E/2+8QtcgmaLBlJk6DSFw/beDg+y6EpvGz/brotlN0EInTPeOE7jcNzL8P3nQXUhSlYz7HRbZ/2qpqonGL6D3YODYIxxjmu5CiKN41L9oTbqKDV4kasn/DMf81L9oTbttvETWtKpP9DY4MfoFD/zUv2hNu289XdZKozk9wwOivH/ivedGesIq6yP50ymrsU3/NYOY1L9oTrxXtr0Wp/yM6/5oX7Qkmuu4UNdij/uoe3Y2Ze82L9sQ00bvVXbpbMfF9hzH3mhftCSa7MlmW8Q1sU2/Mf6950Z7gor2vYGvxNS/aE73lLeotRzSWIouvedGe6C5tUvcLZ2PxNS/aE93PG2PC1P0Ufn817xX4i/xd17xXmGsef4mEPlrk83nL/5uhjxaSJA1Ndf+8aJ8ggggiiNBc4h96bmzwjkWXtAAAAABJRU5ErkJggg==" alt="h">
+				<img id="heart2" class="heart2" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADxElEQVR4nO2Y+VbaQBSHeZa22larbVHccEGBQMK+g1sU37QcXwWk4gI+wO35TZiskDgGip6Te873X3Lnm5l7JwOhUBBBBBHEh4h2u33bbrfp+vqaVFWly8tLOj8/p7OzM2o2mx3RfK1W6xbvIgdyISdyY4ybmxvhfJ6BwU5PTyFLjUaDarUaVatVKpfLVCqVSDQf3imXyywHciEncmMMjDXzCVQqFSZaLBYpn89TLpejTCZDiqJQOp0WHhDvKIrCciAXciI3xsBYM58ABpNlmVKpFEmSRIlEwoJoPvv7kiSx3BgDY/kWVlX11lzrL7mmlSxo6PBnLy4uUAIdr3wjuUYjuUqjtJVhqsIw94aqquI90Wq19Hqv1+sW2ZcMp84YKXXC8/xZ1LRXvlFaEx2akco6eIb3Bd4VngBvTtRloVCwyGrUNNhK1vRm5j3ilc8sOwTJkgU8w3sC7wpPIJvNslpETaLhuKiBdet5Q/PnvfKZZZ8ToGgBz/B+wLuvOudxDl9dXTHsovZw235g7gnU8zTR5zgoGJxw8jpPx3nda/ytcPYEH4wPqK2sIeiYgMv2A3tPaKLusk/HZnIaMQ04cT+4OiaADwgG5c1mX1XHBFy2H6L2npi0qk8TRDWyGkcGvJkBXB0T4CvFv7D2FbWH1/bbe8JV9shOhh4PrfAvNoCrYwJ8xfiqOev07dsvIvp4oFjZB7J+Ik09lfj1AKDrvZpKZPsnih4qE2Rlg6hMD9G0Dpy436RjWr8q8C2fuKqxWa2qSXTfKvqwB1IGu0DSj9WpVw1Jkjq4jySTSXY3meX2G6IusruaqM6ORIOdpMa25gS3seMfz++C/Rz3s/1O0ZRNVNJFOfzY5PehkGjYz3E/2+8QtcgmaLBlJk6DSFw/beDg+y6EpvGz/brotlN0EInTPeOE7jcNzL8P3nQXUhSlYz7HRbZ/2qpqonGL6D3YODYIxxjmu5CiKN41L9oTbqKDV4kasn/DMf81L9oTbttvETWtKpP9DY4MfoFD/zUv2hNu289XdZKozk9wwOivH/ivedGesIq6yP50ymrsU3/NYOY1L9oTrxXtr0Wp/yM6/5oX7Qkmuu4UNdij/uoe3Y2Ze82L9sQ00bvVXbpbMfF9hzH3mhftCSa7MlmW8Q1sU2/Mf6950Z7gor2vYGvxNS/aE73lLeotRzSWIouvedGe6C5tUvcLZ2PxNS/aE93PG2PC1P0Ufn817xX4i/xd17xXmGsef4mEPlrk83nL/5uhjxaSJA1Ndf+8aJ8ggggiiNBc4h96bmzwjkWXtAAAAABJRU5ErkJggg==" alt="h">
+				<img id="heart1" class="heart1" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADxElEQVR4nO2Y+VbaQBSHeZa22larbVHccEGBQMK+g1sU37QcXwWk4gI+wO35TZiskDgGip6Te873X3Lnm5l7JwOhUBBBBBHEh4h2u33bbrfp+vqaVFWly8tLOj8/p7OzM2o2mx3RfK1W6xbvIgdyISdyY4ybmxvhfJ6BwU5PTyFLjUaDarUaVatVKpfLVCqVSDQf3imXyywHciEncmMMjDXzCVQqFSZaLBYpn89TLpejTCZDiqJQOp0WHhDvKIrCciAXciI3xsBYM58ABpNlmVKpFEmSRIlEwoJoPvv7kiSx3BgDY/kWVlX11lzrL7mmlSxo6PBnLy4uUAIdr3wjuUYjuUqjtJVhqsIw94aqquI90Wq19Hqv1+sW2ZcMp84YKXXC8/xZ1LRXvlFaEx2akco6eIb3Bd4VngBvTtRloVCwyGrUNNhK1vRm5j3ilc8sOwTJkgU8w3sC7wpPIJvNslpETaLhuKiBdet5Q/PnvfKZZZ8ToGgBz/B+wLuvOudxDl9dXTHsovZw235g7gnU8zTR5zgoGJxw8jpPx3nda/ytcPYEH4wPqK2sIeiYgMv2A3tPaKLusk/HZnIaMQ04cT+4OiaADwgG5c1mX1XHBFy2H6L2npi0qk8TRDWyGkcGvJkBXB0T4CvFv7D2FbWH1/bbe8JV9shOhh4PrfAvNoCrYwJ8xfiqOev07dsvIvp4oFjZB7J+Ik09lfj1AKDrvZpKZPsnih4qE2Rlg6hMD9G0Dpy436RjWr8q8C2fuKqxWa2qSXTfKvqwB1IGu0DSj9WpVw1Jkjq4jySTSXY3meX2G6IusruaqM6ORIOdpMa25gS3seMfz++C/Rz3s/1O0ZRNVNJFOfzY5PehkGjYz3E/2+8QtcgmaLBlJk6DSFw/beDg+y6EpvGz/brotlN0EInTPeOE7jcNzL8P3nQXUhSlYz7HRbZ/2qpqonGL6D3YODYIxxjmu5CiKN41L9oTbqKDV4kasn/DMf81L9oTbttvETWtKpP9DY4MfoFD/zUv2hNu289XdZKozk9wwOivH/ivedGesIq6yP50ymrsU3/NYOY1L9oTrxXtr0Wp/yM6/5oX7Qkmuu4UNdij/uoe3Y2Ze82L9sQ00bvVXbpbMfF9hzH3mhftCSa7MlmW8Q1sU2/Mf6950Z7gor2vYGvxNS/aE73lLeotRzSWIouvedGe6C5tUvcLZ2PxNS/aE93PG2PC1P0Ufn817xX4i/xd17xXmGsef4mEPlrk83nL/5uhjxaSJA1Ndf+8aJ8ggggiiNBc4h96bmzwjkWXtAAAAABJRU5ErkJggg==" alt="h">
+			</div>
+		</div>
+<!-- game end -->
+		
+		<script src="scripts/popup.js"></script>
+	</body>
+</html>

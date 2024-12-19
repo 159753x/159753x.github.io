@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physiotherapy Clinic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo">
+        <a href="#home">
+          <img src="logo.png" alt="Lavljesrce logo">
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Početna</a></li>
+        <li><a href="#contact">Kontaktirajte Nas</a></li>
+        <li><a href="#cenovnik">Cenovnik</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="section home-section">
+    <div class="overlay">
+      <h1>Dobrodošli</h1>
+      <p>Kontaktirajte nas na: <a href="tel:+381 65 819 6533">065 819 6533</a></p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section">
+    <h2>Kontaktirajte nas</h2>
+    <form id="contact-form">
+      <label for="name">Ime:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="problem">Razlog (Problem ili povreda): </label>
+      <textarea id="problem" name="problem" rows="4" required></textarea>
+
+      <label for="contact-info">Vaš Telefonski Broj</label>
+      <input type="text" id="contact-info" name="contact-info" required>
+
+      <button type="submit">Pošalji</button>
+    </form>
+  </section>
+
+  <!-- Cenovnik Section -->
+  <section id="cenovnik" class="section cenovnik-section">
+    <img src="cenovnik.png" alt="Cenovnik" id="cenovnik-image" width="600px">
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Lavljesrce. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
